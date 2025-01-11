@@ -7,7 +7,6 @@
 ## Features
 
 - Create personalized shortcuts for any website.
-- Navigate to websites directly from the address bar.
 - Enhance your browsing efficiency.
 
   ![image](https://github.com/user-attachments/assets/ed335a25-856c-452c-8102-25738388c1eb)
