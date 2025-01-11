@@ -18,7 +18,7 @@
 
 4. Click on "Load Temporary Add-on..."
 
-5. Select the `manifest.json` file from the downloaded repository.
+5. Select the `extension.zip` file from the downloaded repository.
 
 ## Usage
 
@@ -32,8 +32,9 @@
 
 ## Contributing
 
-Contributions are welcome! Please fork this repository and submit a pull request with your improvements.
+Contributions to this project are welcome! If you have any feature requests or bug reports, please submit them as issues or pull requests.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. You are free to use, copy, modify, and distribute this software as long as you include the original copyright notice and license in any copies. For more details, see the [LICENSE](LICENSE) file.
+
