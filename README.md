@@ -8,7 +8,8 @@
 
 - Create personalized shortcuts for any website.
 - Navigate to websites directly from the address bar.
-- Enhance your browsing efficiency.
+- Enhance your browsing efficiency. ![image](https://github.com/user-attachments/assets/acc37862-ea92-4292-bc95-9429f05352e7)
+
 
 ## Installation
 
