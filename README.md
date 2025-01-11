@@ -1,5 +1,7 @@
 # Link Leap
+
   ![image](https://github.com/user-attachments/assets/ed10423d-97eb-4ca2-9466-62c0494c52a7)
+  
 **Link Leap** is a Firefox extension that allows you to create custom shortcuts for quickly navigating to your favorite websites.
 
 ## Features
