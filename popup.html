@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --border: #eee;
+  --input-border: #e5e7eb;
+  --error: #dc2626;
+  --success: #059669;
+  --shadow: rgba(0,0,0,0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --border: #374151;
+    --input-border: #374151;
+    --shadow: rgba(0,0,0,0.25);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  width: 380px;
+  font-family: system-ui, -apple-system, sans-serif;
+  padding: 16px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title::before {
+  content: "🐸";
+  font-size: 20px;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.shortcuts {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px var(--shadow);
+  margin-bottom: 16px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.shortcut {
+  display: grid;
+  grid-template-columns: 100px 1fr 40px;
+  gap: 12px;
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.shortcut:last-child {
+  border-bottom: none;
+}
+
+.shortcut-key {
+  font-weight: 500;
+  color: var(--accent);
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.shortcut-url {
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.delete-btn {
+  color: var(--error);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  opacity: 0.7;
+  border-radius: 4px;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.add-form {
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px var(--shadow);
+}
+
+.form-title {
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-title::before {
+  content: "+";
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.save-btn {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.save-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.save-btn:active {
+  transform: translateY(0);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.error {
+  color: var(--error);
+  font-size: 14px;
+  margin-top: 4px;
+  display: none;
+}
+
+.success {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: var(--success);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  transform: translateY(100px);
+  transition: transform 0.3s;
+  box-shadow: 0 4px 6px var(--shadow);
+}
+
+.success.show {
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+.shortcuts::-webkit-scrollbar {
+  width: 8px;
+}
+
+.shortcuts::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.shortcuts::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.shortcuts::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1 class="title">Link Leap</h1>
+  <p class="description">Type your shortcut in the address bar to jump to websites. Example: Type "yt" to go to YouTube.</p>
+</div>
+
+<div id="shortcuts" class="shortcuts">
+  <div class="empty-state">No shortcuts yet. Add one below! ✨</div>
+</div>
+
+<form id="addForm" class="add-form">
+  <h2 class="form-title">Add New Shortcut</h2>
+  <div class="input-group">
+    <label for="shortcut">Shortcut</label>
+    <input type="text" id="shortcut" placeholder="e.g., yt" required>
+    <div class="error" id="shortcutError">Shortcut already exists</div>
+  </div>
+  <div class="input-group">
+    <label for="url">Website URL</label>
+    <input type="url" id="url" placeholder="e.g., https://youtube.com" required>
+    <div class="error" id="urlError">Please enter a valid URL</div>
+  </div>
+  <button type="submit" class="save-btn">Save Shortcut</button>
+</form>
+
+<div class="success" id="success">Shortcut saved successfully! 🎉</div>
+<script src="popup.js"></script>
+</body>
+</html>
